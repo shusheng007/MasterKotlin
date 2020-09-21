@@ -10,6 +10,8 @@ import static top.ss007.learn.kotlin.constructs.LangStructsKt.calculate;
 public class Main {
     public static void main(String[] args) {
         System.out.println("hello world");
+
+
     }
 
 
