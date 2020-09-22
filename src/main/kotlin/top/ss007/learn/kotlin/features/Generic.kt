@@ -4,25 +4,28 @@ open class Animal
 class Dog : Animal()
 
 
-
 interface Box<T> {
     fun getAnimal(): T
     fun putAnimal(a: T)
-    fun clear(){}
 }
 
-class AnimalBox<Animal> : Box<Animal>{
-    override fun getAnimal(): Animal {
-        TODO("Not yet implemented")
-    }
-
-    override fun putAnimal(a: Animal) {
-        TODO("Not yet implemented")
-    }
+interface ReadableBox<out T> {
+    fun getAnimal(): T
 }
 
+interface WritableBox<in T> {
+    fun putAnimal(a: T)
+}
 
-class DogBox : Box<Dog>{
+fun getAnimalFromBox(b: Box<out Animal>) {
+    val a: Animal = b.getAnimal()
+}
+
+fun getAnimalFromReadableBox(b: ReadableBox<Animal>){
+    val a: Animal = b.getAnimal()
+}
+
+class DogBox : Box<Dog> {
     override fun getAnimal(): Dog {
         TODO("Not yet implemented")
     }
@@ -32,15 +35,20 @@ class DogBox : Box<Dog>{
     }
 }
 
-
-
-fun action(box:Box<Animal>){
-    box.putAnimal(Animal())
+class GetDogBox :ReadableBox<Dog>{
+    override fun getAnimal(): Dog {
+        TODO("Not yet implemented")
+    }
 }
 
 fun run() {
-//    val dogBox: Box<Dog> =
-    val animalBox:Box<Animal> = AnimalBox()
-    action(animalBox)
+    val dogBox: Box<Dog> = DogBox()
+    //协变了
+    getAnimalFromBox(dogBox)
 
+    val readableDogBox : ReadableBox<Dog> = GetDogBox()
+    getAnimalFromReadableBox(readableDogBox)
 }
+
+
+
