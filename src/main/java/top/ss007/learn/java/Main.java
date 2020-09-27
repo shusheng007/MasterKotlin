@@ -11,6 +11,11 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("hello world");
 
+        Student student = new Student();
+        student.setName("ShuSehng007");
+        student.setAge(18);
+        System.out.println(student.toString());
+
 
     }
 
