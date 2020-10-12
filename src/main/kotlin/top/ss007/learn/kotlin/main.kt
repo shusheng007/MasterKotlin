@@ -1,15 +1,9 @@
 package top.ss007.learn.kotlin
 
-import top.ss007.learn.java.Fun2
-import top.ss007.learn.java.Main
-import top.ss007.learn.java.Student
-import top.ss007.learn.java.feature.GenericDemo
-import top.ss007.learn.kotlin.constructs.runAll
 import top.ss007.learn.kotlin.designpattern.builder.Computer
+import top.ss007.learn.kotlin.designpattern.builder.Computer1
 import top.ss007.learn.kotlin.designpattern.builder.Computer2
 import top.ss007.learn.kotlin.designpattern.builder.Computer3
-import top.ss007.learn.kotlin.features.runDelegate
-import top.ss007.learn.kotlin.features.runScopeFunctions
 
 
 fun main(args: Array<String>) {
@@ -58,8 +52,9 @@ fun main(args: Array<String>) {
     for (c in lambdaBlock().chars()){
         println(c)
     }*/
+    val computer= Computer(ram="海力士",keyboard = "双飞燕")
 
-    val computer = Computer.Builder().
+    val computer1 = Computer1.Builder().
                         setCup("英特尔").
                         setRam("金士顿").
                         setDisplay("三星").
@@ -71,8 +66,8 @@ fun main(args: Array<String>) {
                         setKeyboard("罗技").
                         build()
     val computer3 = Computer3.build {
-        setCup("英特尔")
-        setRam("金士顿")
+        setCup("AMD")
+        setRam("海力士")
         setDisplay("三星")
         setUsb(3)
         setKeyboard("罗技")
