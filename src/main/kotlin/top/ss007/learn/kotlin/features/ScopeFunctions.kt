@@ -29,4 +29,14 @@ fun runScopeFunctions(){
         println(str)
         str
     }.length
+
+
+    val greet1:()->Unit= { println("hello world")}
+
+    var greet2: String.() -> Unit = { println("Hello $this") }
+
+    greet1()
+    greet2("world")
+    "world".greet2()
 }
+
