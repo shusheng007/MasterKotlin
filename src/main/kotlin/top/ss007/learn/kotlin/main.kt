@@ -1,9 +1,8 @@
 package top.ss007.learn.kotlin
 
-import top.ss007.learn.kotlin.designpattern.builder.Computer
-import top.ss007.learn.kotlin.designpattern.builder.Computer1
-import top.ss007.learn.kotlin.designpattern.builder.Computer2
-import top.ss007.learn.kotlin.designpattern.builder.Computer3
+import top.ss007.learn.java.fields.ProRunner
+import top.ss007.learn.kotlin.classes.Student
+import top.ss007.learn.kotlin.properties.runPropertyDemo
 
 
 fun main(args: Array<String>) {
@@ -52,7 +51,7 @@ fun main(args: Array<String>) {
     for (c in lambdaBlock().chars()){
         println(c)
     }*/
-    val computer= Computer(ram="海力士",keyboard = "双飞燕")
+/*    val computer= Computer(ram="海力士",keyboard = "双飞燕")
 
     val computer1 = Computer1.Builder().
                         setCup("英特尔").
@@ -71,7 +70,16 @@ fun main(args: Array<String>) {
         setDisplay("三星")
         setUsb(3)
         setKeyboard("罗技")
+    }*/
+
+    with(Student("T恤")){
+        age = 20
+        println("The age of $name is $age")
     }
+
+    runPropertyDemo()
+
+    ProRunner.runJavaPropertyDemo()
 
 }
 
