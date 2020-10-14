@@ -1,6 +1,5 @@
 package top.ss007.learn.kotlin
 
-import top.ss007.learn.java.fields.ProRunner
 import top.ss007.learn.kotlin.classes.Student
 import top.ss007.learn.kotlin.properties.runPropertyDemo
 
@@ -79,7 +78,9 @@ fun main(args: Array<String>) {
 
     runPropertyDemo()
 
-    ProRunner.runJavaPropertyDemo()
+
+
+//    ProRunner.runJavaPropertyDemo()
 
 }
 

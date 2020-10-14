@@ -32,9 +32,5 @@ class Student (val clothes: String){
 
     companion object {
         const val SCHOOL_NAME = "耀华"
-
-        fun readName() {
-
-        }
     }
 }
