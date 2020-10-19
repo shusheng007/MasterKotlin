@@ -1,7 +1,8 @@
 package top.ss007.learn.kotlin
 
-import top.ss007.learn.kotlin.classes.Student
-import top.ss007.learn.kotlin.properties.runPropertyDemo
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 fun main(args: Array<String>) {
@@ -71,16 +72,46 @@ fun main(args: Array<String>) {
         setKeyboard("罗技")
     }*/
 
-    with(Student("T恤")){
+/*    with(Student("T恤")){
         age = 20
         println("The age of $name is $age")
     }
 
-    runPropertyDemo()
+    runPropertyDemo()*/
 
 
 
 //    ProRunner.runJavaPropertyDemo()
+
+    runBlocking {
+
+        kotlinx.coroutines.coroutineScope{
+            launch {
+                println("等")
+                delay(3000L)
+                println("Task from nested launch")
+            }
+        }
+
+        launch {
+
+            repeat(10){
+                print(".")
+                delay(300)
+            }
+        }
+
+        println("hello")
+
+//        job.join()
+    }
+
+
+
+
+
+
+
 
 }
 
