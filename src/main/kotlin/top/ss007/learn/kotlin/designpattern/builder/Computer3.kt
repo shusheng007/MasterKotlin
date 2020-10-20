@@ -17,7 +17,7 @@ class Computer3 private constructor(
     )
 
     companion object {
-        inline fun build(block: Builder.() -> Unit) = Builder().apply(block).build()
+        inline fun build(block: Builder.() -> Unit):Computer3 = Builder().apply(block).build()
     }
 
     class Builder {

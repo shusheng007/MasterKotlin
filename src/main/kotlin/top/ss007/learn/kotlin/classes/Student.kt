@@ -1,8 +1,12 @@
 package top.ss007.learn.kotlin.classes
 
-class Student (val clothes: String){
+class Student (clothes: String){
 
     lateinit var studyResult: String
+
+    init {
+        studyResult=clothes
+    }
 
     private var _name: String = "ben"
 
@@ -33,4 +37,6 @@ class Student (val clothes: String){
     companion object {
         const val SCHOOL_NAME = "耀华"
     }
+
+
 }

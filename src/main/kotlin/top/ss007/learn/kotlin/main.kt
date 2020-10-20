@@ -3,6 +3,7 @@ package top.ss007.learn.kotlin
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import top.ss007.learn.kotlin.properties.runPropertyDemo
 
 
 fun main(args: Array<String>) {
@@ -76,14 +77,14 @@ fun main(args: Array<String>) {
         age = 20
         println("The age of $name is $age")
     }
-
-    runPropertyDemo()*/
+*/
+    runPropertyDemo()
 
 
 
 //    ProRunner.runJavaPropertyDemo()
 
-    runBlocking {
+/*    runBlocking {
 
         kotlinx.coroutines.coroutineScope{
             launch {
@@ -104,7 +105,7 @@ fun main(args: Array<String>) {
         println("hello")
 
 //        job.join()
-    }
+    }*/
 
 
 

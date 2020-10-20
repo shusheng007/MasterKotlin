@@ -43,7 +43,8 @@ fun runPropertyDemo() {
 //        name = "shusheng007"
 //        println("My name is:$name")
 
-        println("my netName is $netName and I am $age years old")
+//        println("my netName is $netName and I am $age years old")
+        println(p)
     }
 
 }
@@ -61,7 +62,7 @@ class MyDelegate : ReadWriteProperty<Demo, String> {
 //    }
 
     override fun getValue(thisRef: Demo, property: KProperty<*>): String {
-        return ""
+        return "ss007坐怀不乱"
     }
 
     override fun setValue(thisRef: Demo, property: KProperty<*>, value: String) {
@@ -71,6 +72,7 @@ class MyDelegate : ReadWriteProperty<Demo, String> {
 class MyDelegateProvider{
     operator fun provideDelegate(thisRef: Demo, property: KProperty<*>):ReadWriteProperty<Demo,String>{
         //do something
+        println("做了一些扫黄打非的工作")
         return MyDelegate()
     }
 }
@@ -93,7 +95,14 @@ class Demo {
         "age" to 35
     )
 
+    val mutableMap= mutableMapOf<String,Any?>(
+        "netName" to "ss007",
+        "age" to 35
+    )
 
-    val netName: String by map
+
+    var netName: String by mutableMap
     val age: Int by map
+
+
 }
