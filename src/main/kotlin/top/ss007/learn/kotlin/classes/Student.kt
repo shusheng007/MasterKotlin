@@ -1,18 +1,21 @@
 package top.ss007.learn.kotlin.classes
 
-class Student (clothes: String){
+class Student(clothes: String) {
 
     lateinit var studyResult: String
 
     init {
-        studyResult=clothes
+        studyResult = clothes
     }
 
     private var _name: String = "ben"
 
-    val name: String
+    var name: String
         get() {
             return _name
+        }
+        set(value) {
+            _name = value
         }
 
     var age: Int = 18

@@ -7,7 +7,9 @@ fun String.wrapWithSymbol(): String {
 
 //扩展属性
 val <T> List<T>.lastIndex: Int
-    get() = this.size - 1
+    get() {
+        return this.size - 1
+    }
 
 //操作符重载
 data class Point(val x: Int, val y: Int) {

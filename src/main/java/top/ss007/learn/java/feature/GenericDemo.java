@@ -7,7 +7,8 @@ public class GenericDemo {
 
     private Animal getOutAnimalFromBox(BoxJ<? extends Animal> box) {
        Animal animal = box.getAnimal();
-        // box.putAnimal() 没有办法调用修改方法，因为我们不知道？究竟是一个什么类型，没办法传入
+       // box.putAnimal() 没有办法调用修改方法，因为我们不知道“?”究竟是一个什么类型，没法传入值
+
        return animal;
     }
 

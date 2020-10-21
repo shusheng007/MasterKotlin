@@ -1,8 +1,6 @@
 package top.ss007.learn.kotlin
 
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import top.ss007.learn.kotlin.features.method
 import top.ss007.learn.kotlin.properties.runPropertyDemo
 
 
@@ -79,6 +77,8 @@ fun main(args: Array<String>) {
     }
 */
     runPropertyDemo()
+
+    method()
 
 
 
