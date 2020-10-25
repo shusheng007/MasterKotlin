@@ -1,8 +1,7 @@
 package top.ss007.learn.kotlin
 
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import javafx.application.Application.launch
+import kotlinx.coroutines.*
 import top.ss007.learn.kotlin.properties.runPropertyDemo
 
 
@@ -78,42 +77,66 @@ fun main(args: Array<String>) {
         println("The age of $name is $age")
     }
 */
-    runPropertyDemo()
+//    runPropertyDemo()
 
 
 
 //    ProRunner.runJavaPropertyDemo()
 
-/*    runBlocking {
+//    runBlocking {
+//
+///*        kotlinx.coroutines.coroutineScope{
+//            launch {
+//                println("等")
+//                delay(3000L)
+//                println("Task from nested launch")
+//            }
+//        }
+//
+//        launch {
+//
+//            repeat(10){
+//                print(".")
+//                delay(300)
+//            }
+//        }
+//
+//        println("hello")*/
+//
+////        job.join()
+//    }
 
-        kotlinx.coroutines.coroutineScope{
-            launch {
-                println("等")
-                delay(3000L)
-                println("Task from nested launch")
-            }
-        }
-
-        launch {
-
-            repeat(10){
-                print(".")
-                delay(300)
-            }
-        }
-
-        println("hello")
-
-//        job.join()
-    }*/
+    GlobalScope.launch(Dispatchers.IO) {
+        println(Thread.currentThread().name)
+        getAndShowName()
+    }
 
 
+    println("从服务器获取名称成功")
 
-
-
-
-
+    Thread.sleep(3_000)
 
 }
+
+ suspend fun getAndShowName(){
+
+    val name=  requestApi()
+    changeUi(name)
+}
+
+suspend fun requestApi():String{
+   delay(2_000)
+    return "ShuSheng007"
+}
+
+//  return withContext<String>(Dispatchers.Default){
+//        delay(2_000)
+//        "ShuSheng007"
+//    }
+fun changeUi(name:String){
+    println(Thread.currentThread().name)
+    println("欢迎：$name")
+}
+
 
 
