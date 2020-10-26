@@ -1,5 +1,6 @@
 package top.ss007.learn.kotlin.properties
 
+import top.ss007.learn.kotlin.annotations.Focus
 import kotlin.properties.Delegates
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
@@ -35,7 +36,7 @@ fun runPropertyDemo() {
     println("The name of dog is ${animal.name}")*/
 
     Demo().run {
-//        println("赋值前：$p")
+        //        println("赋值前：$p")
 //        p = "ShuSheng007"
 //        println("赋值后：$p")
 //        println("第1次:$lazyValue")
@@ -69,8 +70,8 @@ class MyDelegate : ReadWriteProperty<Demo, String> {
     }
 }
 
-class MyDelegateProvider{
-    operator fun provideDelegate(thisRef: Demo, property: KProperty<*>):ReadWriteProperty<Demo,String>{
+class MyDelegateProvider {
+    operator fun provideDelegate(thisRef: Demo, property: KProperty<*>): ReadWriteProperty<Demo, String> {
         //do something
         println("做了一些扫黄打非的工作")
         return MyDelegate()
@@ -95,7 +96,7 @@ class Demo {
         "age" to 35
     )
 
-    val mutableMap= mutableMapOf<String,Any?>(
+    val mutableMap = mutableMapOf<String, Any?>(
         "netName" to "ss007",
         "age" to 35
     )
@@ -107,3 +108,15 @@ class Demo {
 
 }
 
+class Car(@Focus var wheel: Int) {
+     var speed: Int = 0
+        @Focus set(value) {
+            field = value
+        }
+         get() {
+            return 100
+        }
+
+     val weight: Int
+         @Focus get() = 1000
+}
