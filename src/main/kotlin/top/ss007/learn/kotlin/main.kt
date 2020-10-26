@@ -1,7 +1,6 @@
 package top.ss007.learn.kotlin
 
-import top.ss007.learn.kotlin.features.method
-import top.ss007.learn.kotlin.properties.runPropertyDemo
+import kotlinx.coroutines.*
 
 
 fun main(args: Array<String>) {
@@ -76,9 +75,11 @@ fun main(args: Array<String>) {
         println("The age of $name is $age")
     }
 */
+/*
     runPropertyDemo()
 
     method()
+*/
 
 
 
@@ -103,16 +104,46 @@ fun main(args: Array<String>) {
         }
 
         println("hello")
-
 //        job.join()
     }*/
 
+    val job= GlobalScope.launch {
+//        println("the sum of two num is :${getFirstNum()+ getSecondNum()}")
+        getSum()
+    }
 
+    println("go down")
 
+    runBlocking {
+        job.join()
+    }
 
+}
 
+suspend fun getFirstNum(): Int{
+    delay(1_000)
+    println("got first num")
+    return 10
+}
+suspend fun getSecondNum(): Int{
+    delay(1_000)
+    println("got second num")
+    return 15
+}
 
+suspend fun getSum(){
+    coroutineScope {
+        val first : Deferred<Int> = GlobalScope.async{
+            throw NullPointerException()
+            getFirstNum()
+        }
 
+        val second:Deferred<Int> =GlobalScope.async {
+            getSecondNum()
+        }
+
+        println("the sum of two num is :${first.await()+ second.await()}")
+    }
 
 }
 

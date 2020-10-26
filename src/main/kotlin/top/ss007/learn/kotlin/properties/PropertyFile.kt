@@ -107,8 +107,3 @@ class Demo {
 
 }
 
-class PropertyD{
-    var name:String="ss007"
-        private set
-
-}
